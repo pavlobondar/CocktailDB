@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CocktailView" customModule="CocktailDB" customModuleProvider="target">
             <connections>
+                <outlet property="cocktailNavigationBar" destination="SSY-1W-6cf" id="ojH-JS-DTM"/>
                 <outlet property="cocktailTableView" destination="nkZ-H8-5sZ" id="4dU-jJ-W0l"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

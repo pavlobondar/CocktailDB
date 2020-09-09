@@ -32,6 +32,9 @@
                         <constraint firstAttribute="height" constant="29" id="LMk-Rf-Z1c"/>
                     </constraints>
                     <state key="normal" title="Button" image="filter"/>
+                    <connections>
+                        <action selector="tapFilterButton:" destination="-1" eventType="touchUpInside" id="SPf-te-P31"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,8 +9,8 @@
 import UIKit
 
 class CocktailView: UIViewController {
-    @IBOutlet private weak var cocktailNavigationBar: CocktailNavigationBar!
     @IBOutlet private weak var cocktailTableView: UITableView!
+    @IBOutlet private weak var cocktailNavigationBar: CocktailNavigationBar!
     var presenter: CocktailViewPresenterProtocol!
     
     override func viewDidLoad() {
@@ -19,6 +19,7 @@ class CocktailView: UIViewController {
         // MARK: - register CoctailCell
         let cocktailCell = UINib(nibName: "CoctailCell", bundle: nil)
         cocktailTableView.register(cocktailCell, forCellReuseIdentifier: "cocktailCell")
+        cocktailNavigationBar.сocktailDelegate = self
     }
 }
 
@@ -44,5 +45,11 @@ extension CocktailView: CocktailViewProtocol {
     
     func failure(error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+extension CocktailView: CocktailNavigationBarDelegate {
+    func tapFilterAction() {
+        //action
     }
 }

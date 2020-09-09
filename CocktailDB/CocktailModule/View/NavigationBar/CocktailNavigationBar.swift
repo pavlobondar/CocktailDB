@@ -8,10 +8,15 @@
 
 import UIKit
 
+@objc protocol CocktailNavigationBarDelegate: class {
+    @objc optional func tapFilterAction()
+}
+
 @IBDesignable class CocktailNavigationBar: UINavigationBar {
-    @IBOutlet var view: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var goToFilterButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var goToFilterButton: UIButton!
+    @IBOutlet private var view: UIView!
+    weak var сocktailDelegate: CocktailNavigationBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +36,10 @@ import UIKit
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         titleLabel.font = UIFont(name: "Roboto-Medium", size: 24)
         setViewShadow()
+    }
+    
+    @IBAction private func tapFilterButton(_ sender: UIButton) {
+        сocktailDelegate?.tapFilterAction?()
     }
     
     private func setViewShadow() {
