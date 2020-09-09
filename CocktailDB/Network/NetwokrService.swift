@@ -15,6 +15,7 @@ protocol NetwokrServiceProtocol {
 
 class NetwokrService: NetwokrServiceProtocol {
     typealias Handler = (Result<[Drink], Error>) -> Void
+    typealias ImageHandler = (Result<Image, Error>) -> Void
     let provider = MoyaProvider<APICocktailDB>()
     
     func fetchCocktailList(target: APICocktailDB, completion: @escaping Handler) {

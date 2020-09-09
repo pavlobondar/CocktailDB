@@ -14,10 +14,14 @@ class CocktailView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cocktailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cocktailCell")
+        
+        // MARK: - register CoctailCell
+        let cocktailCell = UINib(nibName: "CoctailCell", bundle: nil)
+        cocktailTableView.register(cocktailCell, forCellReuseIdentifier: "cocktailCell")
     }
 }
 
+// MARK: - CocktailView UITableViewDataSource
 extension CocktailView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.drinks?.count ?? 0
@@ -25,12 +29,13 @@ extension CocktailView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let drink = presenter.drinks?[indexPath.row]
-        let cell = cocktailTableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath)
-        cell.textLabel?.text = drink?.name
+        let cell = cocktailTableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as! CoctailCell
+        cell.setupCell(cocktail: drink)
         return cell
     }
 }
 
+// MARK: - CocktailView CocktailViewProtocol
 extension CocktailView: CocktailViewProtocol {
     func succes() {
         cocktailTableView.reloadData()

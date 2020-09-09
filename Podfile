@@ -7,5 +7,6 @@ target 'CocktailDB' do
 
   # Pods for CocktailDB
 pod 'Moya', '~> 14.0'
+pod 'SDWebImage', '~> 5.0'
 
 end

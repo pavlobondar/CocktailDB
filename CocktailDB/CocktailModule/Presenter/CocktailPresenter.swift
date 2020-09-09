@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol CocktailViewProtocol: class {
     func succes()
@@ -18,6 +19,7 @@ protocol CocktailViewPresenterProtocol: class {
     func fetchDrinks()
     func goToTheFilterView()
     var drinks: [Drink]? { get set }
+    var image: UIImage? { get }
 }
 
 class CocktailPresenter: CocktailViewPresenterProtocol {
@@ -25,6 +27,7 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetwokrServiceProtocol!
     var drinks: [Drink]?
+    var image: UIImage?
     
     required init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol) {
         self.view = view

@@ -21,6 +21,9 @@
 		4722D92B2508E18200B4F4B0 /* APICocktailDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D92A2508E18200B4F4B0 /* APICocktailDB.swift */; };
 		4722D92D2508F19C00B4F4B0 /* CocktailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D92C2508F19C00B4F4B0 /* CocktailPresenter.swift */; };
 		4722D9322508FBC700B4F4B0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D9312508FBC700B4F4B0 /* Router.swift */; };
+		4722D9392509638D00B4F4B0 /* CoctailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D9372509638D00B4F4B0 /* CoctailCell.swift */; };
+		4722D93A2509638D00B4F4B0 /* CoctailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4722D9382509638D00B4F4B0 /* CoctailCell.xib */; };
+		4722D93D2509702E00B4F4B0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */; };
 		DFC633738ACF58CBAD0310CA /* Pods_CocktailDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		4722D92A2508E18200B4F4B0 /* APICocktailDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICocktailDB.swift; sourceTree = "<group>"; };
 		4722D92C2508F19C00B4F4B0 /* CocktailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailPresenter.swift; sourceTree = "<group>"; };
 		4722D9312508FBC700B4F4B0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4722D9372509638D00B4F4B0 /* CoctailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailCell.swift; sourceTree = "<group>"; };
+		4722D9382509638D00B4F4B0 /* CoctailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailCell.xib; sourceTree = "<group>"; };
+		4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84F5933D892B4FBA6B09904 /* Pods-CocktailDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailDB.release.xcconfig"; path = "Target Support Files/Pods-CocktailDB/Pods-CocktailDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +107,8 @@
 				4722D91B2508D12B00B4F4B0 /* Router */,
 				4722D9102508D02200B4F4B0 /* CocktailModule */,
 				4722D9142508D07900B4F4B0 /* FilterModule */,
+				4722D93325091A0100B4F4B0 /* Extensions */,
+				4722D93B25096FD700B4F4B0 /* Fonts */,
 				4722D91C2508D14E00B4F4B0 /* Network */,
 				4722D9182508D0B700B4F4B0 /* Storyboards */,
 				4722D9192508D0C800B4F4B0 /* Resources */,
@@ -131,6 +139,7 @@
 		4722D9112508D04F00B4F4B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4722D9362509635F00B4F4B0 /* Cell */,
 				4722D91D2508D72600B4F4B0 /* CocktailView.swift */,
 				4722D91E2508D72600B4F4B0 /* CocktailView.xib */,
 			);
@@ -227,6 +236,30 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		4722D93325091A0100B4F4B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4722D9362509635F00B4F4B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4722D9372509638D00B4F4B0 /* CoctailCell.swift */,
+				4722D9382509638D00B4F4B0 /* CoctailCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4722D93B25096FD700B4F4B0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,7 +320,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4722D93D2509702E00B4F4B0 /* Roboto-Regular.ttf in Resources */,
 				4722D9082508CDA300B4F4B0 /* LaunchScreen.storyboard in Resources */,
+				4722D93A2509638D00B4F4B0 /* CoctailCell.xib in Resources */,
 				4722D9052508CDA300B4F4B0 /* Assets.xcassets in Resources */,
 				4722D9202508D72600B4F4B0 /* CocktailView.xib in Resources */,
 				4722D9032508CDA000B4F4B0 /* Main.storyboard in Resources */,
@@ -350,6 +385,7 @@
 				4722D8FC2508CDA000B4F4B0 /* AppDelegate.swift in Sources */,
 				4722D9222508DC4F00B4F4B0 /* Drink.swift in Sources */,
 				4722D8FE2508CDA000B4F4B0 /* SceneDelegate.swift in Sources */,
+				4722D9392509638D00B4F4B0 /* CoctailCell.swift in Sources */,
 				4722D9242508DD3C00B4F4B0 /* DrinksList.swift in Sources */,
 				4722D9272508DDDC00B4F4B0 /* AssemblyModuleBuilder.swift in Sources */,
 				4722D9292508DE8200B4F4B0 /* NetwokrService.swift in Sources */,

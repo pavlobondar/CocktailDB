@@ -21,7 +21,7 @@ extension APICocktailDB: TargetType {
     
     var path: String {
         switch self {
-        case .category(name: _):
+        case .category(_):
             return "/api/json/v1/1/filter.php"
         }
     }
