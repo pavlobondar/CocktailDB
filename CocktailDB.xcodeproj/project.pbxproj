@@ -56,15 +56,127 @@
 		4722D8FA2508CDA000B4F4B0 /* CocktailDB */ = {
 			isa = PBXGroup;
 			children = (
-				4722D8FB2508CDA000B4F4B0 /* AppDelegate.swift */,
-				4722D8FD2508CDA000B4F4B0 /* SceneDelegate.swift */,
-				4722D8FF2508CDA000B4F4B0 /* ViewController.swift */,
-				4722D9012508CDA000B4F4B0 /* Main.storyboard */,
-				4722D9042508CDA300B4F4B0 /* Assets.xcassets */,
-				4722D9062508CDA300B4F4B0 /* LaunchScreen.storyboard */,
-				4722D9092508CDA300B4F4B0 /* Info.plist */,
+				4722D90F2508CFDE00B4F4B0 /* Application */,
+				4722D91A2508D10000B4F4B0 /* Builder */,
+				4722D91B2508D12B00B4F4B0 /* Router */,
+				4722D9102508D02200B4F4B0 /* CocktailModule */,
+				4722D9142508D07900B4F4B0 /* FilterModule */,
+				4722D91C2508D14E00B4F4B0 /* Network */,
+				4722D9182508D0B700B4F4B0 /* Storyboards */,
+				4722D9192508D0C800B4F4B0 /* Resources */,
 			);
 			path = CocktailDB;
+			sourceTree = "<group>";
+		};
+		4722D90F2508CFDE00B4F4B0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4722D8FB2508CDA000B4F4B0 /* AppDelegate.swift */,
+				4722D8FD2508CDA000B4F4B0 /* SceneDelegate.swift */,
+				4722D9092508CDA300B4F4B0 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4722D9102508D02200B4F4B0 /* CocktailModule */ = {
+			isa = PBXGroup;
+			children = (
+				4722D9122508D05900B4F4B0 /* Model */,
+				4722D9112508D04F00B4F4B0 /* View */,
+				4722D9132508D06300B4F4B0 /* Presenter */,
+			);
+			path = CocktailModule;
+			sourceTree = "<group>";
+		};
+		4722D9112508D04F00B4F4B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4722D8FF2508CDA000B4F4B0 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4722D9122508D05900B4F4B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4722D9132508D06300B4F4B0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4722D9142508D07900B4F4B0 /* FilterModule */ = {
+			isa = PBXGroup;
+			children = (
+				4722D9152508D08A00B4F4B0 /* Model */,
+				4722D9162508D09300B4F4B0 /* View */,
+				4722D9172508D09800B4F4B0 /* Presenter */,
+			);
+			path = FilterModule;
+			sourceTree = "<group>";
+		};
+		4722D9152508D08A00B4F4B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4722D9162508D09300B4F4B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4722D9172508D09800B4F4B0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4722D9182508D0B700B4F4B0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4722D9012508CDA000B4F4B0 /* Main.storyboard */,
+				4722D9062508CDA300B4F4B0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4722D9192508D0C800B4F4B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4722D9042508CDA300B4F4B0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4722D91A2508D10000B4F4B0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		4722D91B2508D12B00B4F4B0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4722D91C2508D14E00B4F4B0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z67C29K2Q6;
-				INFOPLIST_FILE = CocktailDB/Info.plist;
+				INFOPLIST_FILE = CocktailDB/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z67C29K2Q6;
-				INFOPLIST_FILE = CocktailDB/Info.plist;
+				INFOPLIST_FILE = CocktailDB/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
