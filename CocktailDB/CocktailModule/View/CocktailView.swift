@@ -9,6 +9,7 @@
 import UIKit
 
 class CocktailView: UIViewController {
+    @IBOutlet private weak var cocktailNavigationBar: CocktailNavigationBar!
     @IBOutlet private weak var cocktailTableView: UITableView!
     var presenter: CocktailViewPresenterProtocol!
     

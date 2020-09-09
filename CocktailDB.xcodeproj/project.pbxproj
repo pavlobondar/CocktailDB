@@ -24,6 +24,9 @@
 		4722D9392509638D00B4F4B0 /* CoctailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D9372509638D00B4F4B0 /* CoctailCell.swift */; };
 		4722D93A2509638D00B4F4B0 /* CoctailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4722D9382509638D00B4F4B0 /* CoctailCell.xib */; };
 		4722D93D2509702E00B4F4B0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */; };
+		4722D94025097DA300B4F4B0 /* CocktailNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D93F25097DA300B4F4B0 /* CocktailNavigationBar.swift */; };
+		4722D94225097DBD00B4F4B0 /* CocktailNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4722D94125097DBD00B4F4B0 /* CocktailNavigationBar.xib */; };
+		4722D94425097F0400B4F4B0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4722D94325097F0400B4F4B0 /* Roboto-Medium.ttf */; };
 		DFC633738ACF58CBAD0310CA /* Pods_CocktailDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		4722D9372509638D00B4F4B0 /* CoctailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailCell.swift; sourceTree = "<group>"; };
 		4722D9382509638D00B4F4B0 /* CoctailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoctailCell.xib; sourceTree = "<group>"; };
 		4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		4722D93F25097DA300B4F4B0 /* CocktailNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailNavigationBar.swift; sourceTree = "<group>"; };
+		4722D94125097DBD00B4F4B0 /* CocktailNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CocktailNavigationBar.xib; sourceTree = "<group>"; };
+		4722D94325097F0400B4F4B0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84F5933D892B4FBA6B09904 /* Pods-CocktailDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailDB.release.xcconfig"; path = "Target Support Files/Pods-CocktailDB/Pods-CocktailDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +145,7 @@
 		4722D9112508D04F00B4F4B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4722D93E25097D6500B4F4B0 /* NavigationBar */,
 				4722D9362509635F00B4F4B0 /* Cell */,
 				4722D91D2508D72600B4F4B0 /* CocktailView.swift */,
 				4722D91E2508D72600B4F4B0 /* CocktailView.xib */,
@@ -256,8 +263,18 @@
 			isa = PBXGroup;
 			children = (
 				4722D93C2509702E00B4F4B0 /* Roboto-Regular.ttf */,
+				4722D94325097F0400B4F4B0 /* Roboto-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4722D93E25097D6500B4F4B0 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4722D93F25097DA300B4F4B0 /* CocktailNavigationBar.swift */,
+				4722D94125097DBD00B4F4B0 /* CocktailNavigationBar.xib */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,12 +337,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4722D94425097F0400B4F4B0 /* Roboto-Medium.ttf in Resources */,
 				4722D93D2509702E00B4F4B0 /* Roboto-Regular.ttf in Resources */,
 				4722D9082508CDA300B4F4B0 /* LaunchScreen.storyboard in Resources */,
 				4722D93A2509638D00B4F4B0 /* CoctailCell.xib in Resources */,
 				4722D9052508CDA300B4F4B0 /* Assets.xcassets in Resources */,
 				4722D9202508D72600B4F4B0 /* CocktailView.xib in Resources */,
 				4722D9032508CDA000B4F4B0 /* Main.storyboard in Resources */,
+				4722D94225097DBD00B4F4B0 /* CocktailNavigationBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +406,7 @@
 				4722D8FE2508CDA000B4F4B0 /* SceneDelegate.swift in Sources */,
 				4722D9392509638D00B4F4B0 /* CoctailCell.swift in Sources */,
 				4722D9242508DD3C00B4F4B0 /* DrinksList.swift in Sources */,
+				4722D94025097DA300B4F4B0 /* CocktailNavigationBar.swift in Sources */,
 				4722D9272508DDDC00B4F4B0 /* AssemblyModuleBuilder.swift in Sources */,
 				4722D9292508DE8200B4F4B0 /* NetwokrService.swift in Sources */,
 			);

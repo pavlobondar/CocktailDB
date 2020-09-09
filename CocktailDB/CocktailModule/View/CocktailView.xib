@@ -19,22 +19,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nkZ-H8-5sZ">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="qXj-O2-a2l"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSY-1W-6cf" customClass="CocktailNavigationBar" customModule="CocktailDB" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="yhX-JP-Qab"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="SSY-1W-6cf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5eo-Yc-CYf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nkZ-H8-5sZ" secondAttribute="trailing" id="7BB-o4-fqz"/>
-                <constraint firstItem="nkZ-H8-5sZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7qc-fb-63O"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nkZ-H8-5sZ" secondAttribute="bottom" id="I2F-S3-ynn"/>
+                <constraint firstItem="SSY-1W-6cf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MYw-2n-e8g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SSY-1W-6cf" secondAttribute="trailing" id="fxh-Vc-pvy"/>
                 <constraint firstItem="nkZ-H8-5sZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hJz-6a-9ul"/>
+                <constraint firstItem="nkZ-H8-5sZ" firstAttribute="top" secondItem="SSY-1W-6cf" secondAttribute="bottom" id="k3B-fa-J39"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="117"/>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </view>
     </objects>
 </document>
