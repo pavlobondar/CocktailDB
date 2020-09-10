@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol CocktailViewProtocol: class {
     func succes()
@@ -19,7 +18,6 @@ protocol CocktailViewPresenterProtocol: class {
     func fetchDrinks()
     func goToTheFilterView()
     var drinks: [Drink]? { get set }
-    var image: UIImage? { get }
 }
 
 class CocktailPresenter: CocktailViewPresenterProtocol {
@@ -27,7 +25,6 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetwokrServiceProtocol!
     var drinks: [Drink]?
-    var image: UIImage?
     
     required init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol) {
         self.view = view
@@ -37,12 +34,13 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     }
     
     func fetchDrinks() {
-        networkService.fetchCocktailList(target: .category(name: "Ordinary Drink")) { [weak self] result in
+        typealias Handler = Result<DrinksList, Error>
+        networkService.loadData(target: .cocktail(name: "Ordinary Drink")) { [weak self] (result: Handler) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
-                case .success(let drinks):
-                    self.drinks = drinks
+                case .success(let response):
+                    self.drinks = response.drinks
                     self.view?.succes()
                 case .failure(let error):
                     self.view?.failure(error: error)
@@ -52,7 +50,6 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     }
     
     func goToTheFilterView() {
-        //go to the filter view
         router?.showFilter()
     }
 }

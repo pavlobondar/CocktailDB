@@ -37,7 +37,7 @@ class Router: RouterProtocol {
     
     func showFilter() {
         if let navigationController = navigationController {
-            guard let filterView = assemblyBuilder?.createCocktailModule(router: self) else { return }
+            guard let filterView = assemblyBuilder?.createFilterModule(router: self) else { return }
             navigationController.pushViewController(filterView, animated: true)
         }
     }

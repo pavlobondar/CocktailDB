@@ -10,21 +10,19 @@ import Foundation
 import Moya
 
 protocol NetwokrServiceProtocol {
-    func fetchCocktailList(target: APICocktailDB, completion: @escaping (Result<[Drink], Error>) -> Void)
+    func loadData<T: Decodable>(target: APICocktailDB, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 class NetwokrService: NetwokrServiceProtocol {
-    typealias Handler = (Result<[Drink], Error>) -> Void
-    typealias ImageHandler = (Result<Image, Error>) -> Void
     let provider = MoyaProvider<APICocktailDB>()
     
-    func fetchCocktailList(target: APICocktailDB, completion: @escaping Handler) {
+    func loadData<T: Decodable>(target: APICocktailDB, completion: @escaping (Result<T, Error>) -> Void) {
         provider.request(target) { result in
             switch result {
             case .success(let response):
                 do {
-                    let results = try JSONDecoder().decode(DrinksList.self, from: response.data)
-                    completion(.success(results.drinks))
+                    let results = try JSONDecoder().decode(T.self, from: response.data)
+                    completion(.success(results))
                 } catch {
                     completion(.failure(error))
                 }
