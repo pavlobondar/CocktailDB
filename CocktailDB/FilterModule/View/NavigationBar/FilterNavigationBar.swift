@@ -1,5 +1,5 @@
 //
-//  CocktailNavigationBar.swift
+//  FilterNavigationBar.swift
 //  CocktailDB
 //
 //  Created by Pavel Bondar on 10.09.2020.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-@objc protocol CocktailNavigationBarDelegate: class {
-    @objc optional func tapFilterAction()
+@objc protocol FilterNavigationBarDelegate: class {
+    @objc optional func tapBackAction()
 }
 
-@IBDesignable class CocktailNavigationBar: UINavigationBar {
+@IBDesignable class FilterNavigationBar: UINavigationBar {
+    @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var goToFilterButton: UIButton!
     @IBOutlet private var view: UIView!
-    weak var сocktailDelegate: CocktailNavigationBarDelegate?
+    weak var filterDelegate: FilterNavigationBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,8 +29,8 @@ import UIKit
     }
     
     private func commonInit() {
-        let bundle = Bundle(for: CocktailNavigationBar.self)
-        bundle.loadNibNamed("CocktailNavigationBar", owner: self, options: nil)
+        let bundle = Bundle(for: FilterNavigationBar.self)
+        bundle.loadNibNamed("FilterNavigationBar", owner: self, options: nil)
         addSubview(view)
         view.frame = self.bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -45,7 +45,7 @@ import UIKit
         view.layer.shadowRadius = 3
     }
     
-    @IBAction private func goToFiltersAction(_ sender: UIButton) {
-        сocktailDelegate?.tapFilterAction?()
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        filterDelegate?.tapBackAction?()
     }
 }

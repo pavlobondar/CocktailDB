@@ -35,6 +35,8 @@
 		4722D9552509F50D00B4F4B0 /* FilterFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D9542509F50D00B4F4B0 /* FilterFooter.swift */; };
 		4722D9572509F52500B4F4B0 /* FilterFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4722D9562509F52500B4F4B0 /* FilterFooter.xib */; };
 		4722D959250A093D00B4F4B0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4722D958250A093D00B4F4B0 /* Roboto-Bold.ttf */; };
+		4722D95C250A15B500B4F4B0 /* FilterNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4722D95B250A15B500B4F4B0 /* FilterNavigationBar.swift */; };
+		4722D95E250A15E900B4F4B0 /* FilterNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4722D95D250A15E900B4F4B0 /* FilterNavigationBar.xib */; };
 		DFC633738ACF58CBAD0310CA /* Pods_CocktailDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		4722D9542509F50D00B4F4B0 /* FilterFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFooter.swift; sourceTree = "<group>"; };
 		4722D9562509F52500B4F4B0 /* FilterFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterFooter.xib; sourceTree = "<group>"; };
 		4722D958250A093D00B4F4B0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		4722D95B250A15B500B4F4B0 /* FilterNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterNavigationBar.swift; sourceTree = "<group>"; };
+		4722D95D250A15E900B4F4B0 /* FilterNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterNavigationBar.xib; sourceTree = "<group>"; };
 		76BBC55BECD0AA5E21D62CF2 /* Pods_CocktailDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84F5933D892B4FBA6B09904 /* Pods-CocktailDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailDB.release.xcconfig"; path = "Target Support Files/Pods-CocktailDB/Pods-CocktailDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +212,7 @@
 		4722D9162508D09300B4F4B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4722D95A250A158100B4F4B0 /* NavigationBar */,
 				4722D9532509F4CA00B4F4B0 /* Footer */,
 				4722D94A2509969100B4F4B0 /* FilterView.swift */,
 				4722D94B2509969100B4F4B0 /* FilterView.xib */,
@@ -309,6 +314,15 @@
 			path = Footer;
 			sourceTree = "<group>";
 		};
+		4722D95A250A158100B4F4B0 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4722D95B250A15B500B4F4B0 /* FilterNavigationBar.swift */,
+				4722D95D250A15E900B4F4B0 /* FilterNavigationBar.xib */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +386,7 @@
 				4722D94425097F0400B4F4B0 /* Roboto-Medium.ttf in Resources */,
 				4722D94D2509969100B4F4B0 /* FilterView.xib in Resources */,
 				4722D93D2509702E00B4F4B0 /* Roboto-Regular.ttf in Resources */,
+				4722D95E250A15E900B4F4B0 /* FilterNavigationBar.xib in Resources */,
 				4722D9082508CDA300B4F4B0 /* LaunchScreen.storyboard in Resources */,
 				4722D959250A093D00B4F4B0 /* Roboto-Bold.ttf in Resources */,
 				4722D93A2509638D00B4F4B0 /* CoctailCell.xib in Resources */,
@@ -435,6 +450,7 @@
 				4722D94C2509969100B4F4B0 /* FilterView.swift in Sources */,
 				4722D92B2508E18200B4F4B0 /* APICocktailDB.swift in Sources */,
 				4722D91F2508D72600B4F4B0 /* CocktailView.swift in Sources */,
+				4722D95C250A15B500B4F4B0 /* FilterNavigationBar.swift in Sources */,
 				4722D9322508FBC700B4F4B0 /* Router.swift in Sources */,
 				4722D92D2508F19C00B4F4B0 /* CocktailPresenter.swift in Sources */,
 				4722D8FC2508CDA000B4F4B0 /* AppDelegate.swift in Sources */,
