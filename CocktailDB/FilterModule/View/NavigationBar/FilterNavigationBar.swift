@@ -8,10 +8,15 @@
 
 import UIKit
 
+@objc protocol FilterNavigationBarDelegate: class {
+    @objc optional func tapBackAction()
+}
+
 @IBDesignable class FilterNavigationBar: UINavigationBar {
-    @IBOutlet private var view: UIView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private var view: UIView!
+    weak var filterDelegate: FilterNavigationBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +46,6 @@ import UIKit
     }
     
     @IBAction func backButtonAction(_ sender: UIButton) {
-        
+        filterDelegate?.tapBackAction?()
     }
 }

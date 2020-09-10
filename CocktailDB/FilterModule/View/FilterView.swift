@@ -15,7 +15,7 @@ class FilterView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        filterNavigationBar.filterDelegate = self
     }
 }
 
@@ -45,5 +45,11 @@ extension FilterView: FilterViewProtocol {
     
     func failure(error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+extension FilterView: FilterNavigationBarDelegate {
+    func tapBackAction() {
+        //action
     }
 }
