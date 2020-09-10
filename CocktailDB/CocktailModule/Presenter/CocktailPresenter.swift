@@ -15,8 +15,9 @@ protocol CocktailViewProtocol: class {
 
 protocol CocktailViewPresenterProtocol: class {
     init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol)
-    func fetchDrinks()
     func goToTheFilterView()
+    func fetchDrinksAndCategory(index: Int)
+    func getDrinksAndCategories() -> [DrinksAndCategory]
     var drinks: [Drink]? { get set }
 }
 
@@ -25,28 +26,39 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     var router: RouterProtocol?
     let networkService: NetwokrServiceProtocol!
     var drinks: [Drink]?
+    var drinksAndCategory = [DrinksAndCategory]()
+    var drinksCategory = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot"]
     
     required init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
         self.router = router
-        fetchDrinks()
+        fetchDrinksAndCategory(index: 0)
     }
     
-    func fetchDrinks() {
-        typealias Handler = Result<DrinksList, Error>
-        networkService.loadData(target: .cocktail(name: "Ordinary Drink")) { [weak self] (result: Handler) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    self.drinks = response.drinks
-                    self.view?.succes()
-                case .failure(let error):
-                    self.view?.failure(error: error)
+    func fetchDrinksAndCategory(index: Int) {
+        if index <= drinksCategory.count {
+            typealias Handler = Result<DrinksList, Error>
+            networkService.loadData(target: .cocktail(name: drinksCategory[index])) { [weak self] (result: Handler) in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                        let item = DrinksAndCategory(categoryName: self.drinksCategory[index], drinks: response.drinks)
+                        self.drinksAndCategory.append(item)
+                        self.view?.succes()
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
             }
+        } else {
+            print("Element with index: \(index) does not exist.")
         }
+    }
+    
+    func getDrinksAndCategories() -> [DrinksAndCategory] {
+        return drinksAndCategory
     }
     
     func goToTheFilterView() {

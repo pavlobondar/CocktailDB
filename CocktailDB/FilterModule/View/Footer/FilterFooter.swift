@@ -8,9 +8,14 @@
 
 import UIKit
 
+@objc protocol FilterFooterDelegate {
+    @objc optional func tapApplyAction()
+}
+
 class FilterFooter: UIView {
     @IBOutlet private var view: UIView!
     @IBOutlet private weak var applyButton: UIButton!
+    var filterFooterDelegate: FilterFooterDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,5 +38,6 @@ class FilterFooter: UIView {
     }
     
     @IBAction func applyAction(_ sender: UIButton) {
+        filterFooterDelegate?.tapApplyAction?()
     }
 }
