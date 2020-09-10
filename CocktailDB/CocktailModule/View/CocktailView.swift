@@ -48,8 +48,9 @@ extension CocktailView: CocktailViewProtocol {
     }
 }
 
+// MARK: - CocktailView CocktailNavigationBarDelegate
 extension CocktailView: CocktailNavigationBarDelegate {
     func tapFilterAction() {
-        //action
+        presenter.goToTheFilterView()
     }
 }

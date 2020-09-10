@@ -10,7 +10,8 @@ import Foundation
 import Moya
 
 enum APICocktailDB {
-    case category(name: String)
+    case cocktail(name: String)
+    case categories
 }
 
 extension APICocktailDB: TargetType {
@@ -21,8 +22,10 @@ extension APICocktailDB: TargetType {
     
     var path: String {
         switch self {
-        case .category(_):
+        case .cocktail(_):
             return "/api/json/v1/1/filter.php"
+        case .categories:
+            return "/api/json/v1/1/list.php"
         }
     }
     
@@ -36,8 +39,10 @@ extension APICocktailDB: TargetType {
     
     var task: Task {
         switch self {
-        case .category(let name):
+        case .cocktail(let name):
             return .requestParameters(parameters: ["c" : name], encoding: URLEncoding.default)
+        case .categories:
+            return .requestParameters(parameters: ["c" : "list"], encoding: URLEncoding.default)
         }
     }
     
