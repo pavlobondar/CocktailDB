@@ -17,10 +17,14 @@ protocol FilterViewPresenterProtocol: class {
     init(view: FilterViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol)
     func fetchFilters()
     func goToPopView()
+    func appendToSelectedCategories(category: String)
+    func removeFromSelectedCategories(category: String)
+    func getSelectedCategories() -> [String]
     var categories: [Category]? { get set }
 }
 
 class FilterPresenter: FilterViewPresenterProtocol {
+    private var selectedCategories = [String]()
     weak var view: FilterViewProtocol?
     var router: RouterProtocol?
     let networkService: NetwokrServiceProtocol!
@@ -49,7 +53,19 @@ class FilterPresenter: FilterViewPresenterProtocol {
         }
     }
     
+    func appendToSelectedCategories(category: String) {
+        selectedCategories.append(category)
+    }
+    
+    func removeFromSelectedCategories(category: String) {
+        selectedCategories = selectedCategories.filter { $0 != category }
+    }
+    
+    func getSelectedCategories() -> [String] {
+        selectedCategories
+    }
+    
     func goToPopView() {
-        
+        router?.popToRoot()
     }
 }

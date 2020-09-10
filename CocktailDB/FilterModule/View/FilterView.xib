@@ -23,6 +23,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lKs-ye-8h1"/>
+                        <outlet property="delegate" destination="-1" id="uhD-wq-UJu"/>
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-Ot-drr">

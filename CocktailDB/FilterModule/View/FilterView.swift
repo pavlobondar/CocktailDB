@@ -28,10 +28,28 @@ extension FilterView: UITableViewDataSource {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = category?.category
         cell.textLabel?.textColor = #colorLiteral(red: 0.4705343246, green: 0.4706193209, blue: 0.4705289602, alpha: 1)
+        if let category = category?.category {
+            cell.accessoryType = presenter.getSelectedCategories().contains(category) ? .checkmark : .none
+        }
         cell.textLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
         cell.tintColor = .black
-        cell.accessoryType = .checkmark
         return cell
+    }
+}
+
+extension FilterView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = presenter.categories?[indexPath.row].category
+        if let category = category {
+            if presenter.getSelectedCategories().contains(category) {
+                filterTableView.cellForRow(at: indexPath)?.accessoryType = .none
+                presenter.removeFromSelectedCategories(category: category)
+            } else {
+                filterTableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+                presenter.appendToSelectedCategories(category: category)
+            }
+        }
+        print(presenter.getSelectedCategories())
     }
 }
 
