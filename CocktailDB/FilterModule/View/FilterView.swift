@@ -10,6 +10,7 @@ import UIKit
 
 class FilterView: UIViewController {
     @IBOutlet private weak var filterTableView: UITableView!
+    @IBOutlet private weak var filterNavigationBar: FilterNavigationBar!
     var presenter: FilterViewPresenterProtocol!
     
     override func viewDidLoad() {

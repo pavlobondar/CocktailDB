@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterView" customModule="CocktailDB" customModuleProvider="target">
             <connections>
+                <outlet property="filterNavigationBar" destination="fNp-Ot-drr" id="vnf-hP-4Ri"/>
                 <outlet property="filterTableView" destination="27d-xJ-9qr" id="3RD-mK-zv4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +26,7 @@
                         <outlet property="dataSource" destination="-1" id="lKs-ye-8h1"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-Ot-drr">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-Ot-drr" customClass="FilterNavigationBar" customModule="CocktailDB" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="70"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
