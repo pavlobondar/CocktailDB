@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterView" customModule="CocktailDB" customModuleProvider="target">
+            <connections>
+                <outlet property="filterNavigationBar" destination="fNp-Ot-drr" id="vnf-hP-4Ri"/>
+                <outlet property="filterTableView" destination="27d-xJ-9qr" id="3RD-mK-zv4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="1" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="27d-xJ-9qr">
+                    <rect key="frame" x="20" y="114" width="374" height="748"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="lKs-ye-8h1"/>
+                        <outlet property="delegate" destination="-1" id="uhD-wq-UJu"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNp-Ot-drr" customClass="FilterNavigationBar" customModule="CocktailDB" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="0lX-13-Vg1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="27d-xJ-9qr" secondAttribute="bottom" id="7b5-EV-adM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fNp-Ot-drr" secondAttribute="trailing" id="F5J-89-Sc3"/>
+                <constraint firstItem="fNp-Ot-drr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="L7m-LU-SQg"/>
+                <constraint firstItem="27d-xJ-9qr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QHh-Z7-cCF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="27d-xJ-9qr" secondAttribute="trailing" constant="20" id="XU6-K3-wxv"/>
+                <constraint firstItem="fNp-Ot-drr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rIl-Zw-e2N"/>
+                <constraint firstItem="27d-xJ-9qr" firstAttribute="top" secondItem="fNp-Ot-drr" secondAttribute="bottom" id="uto-a7-UuN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
+        </view>
+    </objects>
+</document>
