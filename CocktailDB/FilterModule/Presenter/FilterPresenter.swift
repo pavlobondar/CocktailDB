@@ -19,7 +19,7 @@ protocol FilterViewPresenterProtocol: class {
     func goToPopView()
     func appendToSelectedCategories(category: String)
     func removeFromSelectedCategories(category: String)
-    func getSelectedCategories() -> [String]
+    func getCategoriesList() -> [String]
     var categories: [Category]? { get set }
 }
 
@@ -61,8 +61,8 @@ class FilterPresenter: FilterViewPresenterProtocol {
         selectedCategories = selectedCategories.filter { $0 != category }
     }
     
-    func getSelectedCategories() -> [String] {
-        selectedCategories
+    func getCategoriesList() -> [String] {
+        return selectedCategories
     }
     
     func goToPopView() {

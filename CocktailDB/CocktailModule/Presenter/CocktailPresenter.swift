@@ -17,6 +17,7 @@ protocol CocktailViewPresenterProtocol: class {
     init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol)
     func goToTheFilterView()
     func fetchDrinksAndCategory(index: Int)
+    func fetchNextDrinksAndCategory()
     func getDrinksAndCategories() -> [DrinksAndCategory]
     var drinks: [Drink]? { get set }
 }
@@ -27,6 +28,8 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     let networkService: NetwokrServiceProtocol!
     var drinks: [Drink]?
     var drinksAndCategory = [DrinksAndCategory]()
+    var nextCategoryIndex = 0
+    
     var drinksCategory = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot"]
     
     required init(view: CocktailViewProtocol, networkService: NetwokrServiceProtocol, router: RouterProtocol) {
@@ -37,7 +40,7 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
     }
     
     func fetchDrinksAndCategory(index: Int) {
-        if index <= drinksCategory.count {
+        if drinksCategory.indices.contains(index) {
             typealias Handler = Result<DrinksList, Error>
             networkService.loadData(target: .cocktail(name: drinksCategory[index])) { [weak self] (result: Handler) in
                 guard let self = self else { return }
@@ -47,14 +50,17 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
                         let item = DrinksAndCategory(categoryName: self.drinksCategory[index], drinks: response.drinks)
                         self.drinksAndCategory.append(item)
                         self.view?.succes()
+                        self.nextCategoryIndex += 1
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
                 }
             }
-        } else {
-            print("Element with index: \(index) does not exist.")
         }
+    }
+    
+    func fetchNextDrinksAndCategory() {
+        fetchDrinksAndCategory(index: nextCategoryIndex)
     }
     
     func getDrinksAndCategories() -> [DrinksAndCategory] {

@@ -35,20 +35,19 @@ extension CocktailView: UITableViewDataSource {
         cell.setupCell(cocktail: drink)
         return cell
     }
-}
-
-// MARK: - CocktailView: UITableViewDataSource
-extension CocktailView: UITableViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        if position > (cocktailTableView.contentSize.height - 100 - scrollView.frame.size.height) {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == tableView.numberOfSections - 1 &&
+            indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                let index = self.presenter.getDrinksAndCategories().count
-                self.presenter.fetchDrinksAndCategory(index: index)
+                self.presenter.fetchNextDrinksAndCategory()
             }
         }
     }
 }
+
+// MARK: - CocktailView: UITableViewDelegate
+extension CocktailView: UITableViewDelegate {}
 
 // MARK: - CocktailView: CocktailViewProtocol
 extension CocktailView: CocktailViewProtocol {
