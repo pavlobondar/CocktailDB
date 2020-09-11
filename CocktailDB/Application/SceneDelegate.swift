@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+        // MARK: - set first controller
         let navigationController = UINavigationController()
         navigationController.setNavigationBarHidden(true, animated: false)
         let assemblyBuilder = AssemblyModuleBuilder()

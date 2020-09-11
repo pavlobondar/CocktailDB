@@ -14,6 +14,7 @@ protocol AssemblyBuilderProtocol {
 }
 
 class AssemblyModuleBuilder: AssemblyBuilderProtocol {
+    // MARK: - create cocktail module
     func createCocktailModule(router: RouterProtocol) -> UIViewController {
         let cocktailView = CocktailView()
         let networkService = NetwokrService()
@@ -22,6 +23,7 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         return cocktailView
     }
     
+    // MARK: - create filters module
     func createFilterModule(router: RouterProtocol) -> UIViewController {
         let filterView = FilterView()
         let networkService = NetwokrService()

@@ -21,5 +21,12 @@ class CocktailView: UIViewController {
         cocktailTableView.register(cocktailCell, forCellReuseIdentifier: "cocktailCell")
         // MARK: - сocktailDelegate
         cocktailNavigationBar.сocktailDelegate = self
+        // MARK: - NotificationCenter
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTable),
+                                               name: NSNotification.Name("tapApplyAction"), object: nil)
+    }
+    
+    @objc private func updateTable() {
+        presenter.updateTable()
     }
 }

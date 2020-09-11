@@ -16,6 +16,7 @@ protocol NetwokrServiceProtocol {
 class NetwokrService: NetwokrServiceProtocol {
     let provider = MoyaProvider<APICocktailDB>()
     
+    // MARK: - load data
     func loadData<T: Decodable>(target: APICocktailDB, completion: @escaping (Result<T, Error>) -> Void) {
         provider.request(target) { result in
             switch result {

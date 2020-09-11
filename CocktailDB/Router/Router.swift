@@ -20,6 +20,7 @@ protocol RouterProtocol: RouterMain {
 }
 
 class Router: RouterProtocol {
+    // MARK: - variables
     var navigationController: UINavigationController?
     var assemblyBuilder: AssemblyBuilderProtocol?
     
@@ -28,6 +29,7 @@ class Router: RouterProtocol {
         self.assemblyBuilder = assemblyBuilder
     }
     
+    // MARK: - init first view controller
     func initialViewController() {
         if let navigationController = navigationController {
             guard let cocktailView = assemblyBuilder?.createCocktailModule(router: self) else { return }
@@ -35,6 +37,7 @@ class Router: RouterProtocol {
         }
     }
     
+    // MARK: - go to filter view controller
     func showFilter() {
         if let navigationController = navigationController {
             guard let filterView = assemblyBuilder?.createFilterModule(router: self) else { return }
@@ -42,6 +45,7 @@ class Router: RouterProtocol {
         }
     }
     
+    // MARK: - go to drinks view controller
     func popToRoot() {
         if let navigationController = navigationController {
             navigationController.popToRootViewController(animated: true)

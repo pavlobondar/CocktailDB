@@ -20,10 +20,12 @@ protocol FilterViewPresenterProtocol: class {
     func appendToSelectedCategories(category: String)
     func removeFromSelectedCategories(category: String)
     func getCategoriesList() -> [String]
+    func saveToUserDefault(categories: [String])
     var categories: [Category]? { get set }
 }
 
 class FilterPresenter: FilterViewPresenterProtocol {
+    // MARK: - variables
     private var selectedCategories = [String]()
     weak var view: FilterViewProtocol?
     var router: RouterProtocol?
@@ -37,6 +39,7 @@ class FilterPresenter: FilterViewPresenterProtocol {
         fetchFilters()
     }
     
+    // MARK: - fetch filters
     func fetchFilters() {
         typealias Handler = Result<FiltersCategoryList, Error>
         networkService.loadData(target: .categories) { [weak self] (result: Handler) in
@@ -45,6 +48,7 @@ class FilterPresenter: FilterViewPresenterProtocol {
                 switch result {
                 case .success(let response):
                     self.categories = response.categories
+                    self.setSelectedFilters()
                     self.view?.succes()
                 case .failure(let error):
                     self.view?.failure(error: error)
@@ -53,18 +57,40 @@ class FilterPresenter: FilterViewPresenterProtocol {
         }
     }
     
+    // MARK: - set checked
+    func setSelectedFilters() {
+        let userFiltersList = UserDefaults.standard.object(forKey: "savedFilters") as? [String]
+        if userFiltersList != nil {
+            guard let userFiltersList = userFiltersList else { return }
+            userFiltersList.forEach { selectedCategories.append($0) }
+        } else {
+            guard let categories = categories else { return }
+            categories.forEach { selectedCategories.append($0.category) }
+        }
+    }
+    
+    // MARK: - add ckeck item
     func appendToSelectedCategories(category: String) {
         selectedCategories.append(category)
     }
     
+    // MARK: - remove check item
     func removeFromSelectedCategories(category: String) {
         selectedCategories = selectedCategories.filter { $0 != category }
     }
     
+    // MARK: - get checed list
     func getCategoriesList() -> [String] {
         return selectedCategories
     }
     
+    // MARK: - save to user default storage
+    func saveToUserDefault(categories: [String]) {
+        UserDefaults.standard.removeObject(forKey: "savedFilters")
+        UserDefaults.standard.set(categories, forKey: "savedFilters")
+    }
+    
+    // MARK: - go to Drinks view
     func goToPopView() {
         router?.popToRoot()
     }
