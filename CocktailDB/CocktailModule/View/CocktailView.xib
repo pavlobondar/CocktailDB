@@ -24,6 +24,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="qXj-O2-a2l"/>
+                        <outlet property="delegate" destination="-1" id="1ud-gN-Cfg"/>
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSY-1W-6cf" customClass="CocktailNavigationBar" customModule="CocktailDB" customModuleProvider="target">

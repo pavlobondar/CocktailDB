@@ -9,8 +9,8 @@
 import UIKit
 
 class CocktailView: UIViewController {
-    @IBOutlet private weak var cocktailTableView: UITableView!
     @IBOutlet private weak var cocktailNavigationBar: CocktailNavigationBar!
+    @IBOutlet internal weak var cocktailTableView: UITableView!
     var presenter: CocktailViewPresenterProtocol!
     
     override func viewDidLoad() {
@@ -19,38 +19,14 @@ class CocktailView: UIViewController {
         // MARK: - register CoctailCell
         let cocktailCell = UINib(nibName: "CoctailCell", bundle: nil)
         cocktailTableView.register(cocktailCell, forCellReuseIdentifier: "cocktailCell")
+        // MARK: - сocktailDelegate
         cocktailNavigationBar.сocktailDelegate = self
-    }
-}
-
-// MARK: - CocktailView UITableViewDataSource
-extension CocktailView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.drinks?.count ?? 0
+        // MARK: - NotificationCenter
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTable),
+                                               name: NSNotification.Name("tapApplyAction"), object: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let drink = presenter.drinks?[indexPath.row]
-        let cell = cocktailTableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as! CoctailCell
-        cell.setupCell(cocktail: drink)
-        return cell
-    }
-}
-
-// MARK: - CocktailView CocktailViewProtocol
-extension CocktailView: CocktailViewProtocol {
-    func succes() {
-        cocktailTableView.reloadData()
-    }
-    
-    func failure(error: Error) {
-        print(error.localizedDescription)
-    }
-}
-
-// MARK: - CocktailView CocktailNavigationBarDelegate
-extension CocktailView: CocktailNavigationBarDelegate {
-    func tapFilterAction() {
-        presenter.goToTheFilterView()
+    @objc private func updateTable() {
+        presenter.updateTable()
     }
 }

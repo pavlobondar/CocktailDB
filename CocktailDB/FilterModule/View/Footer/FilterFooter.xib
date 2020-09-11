@@ -25,6 +25,9 @@
                     <state key="normal" title="APPLY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="applyAction:" destination="-1" eventType="touchUpInside" id="Xb9-GS-m2c"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
