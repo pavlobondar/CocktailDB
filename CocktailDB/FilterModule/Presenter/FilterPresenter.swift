@@ -20,7 +20,7 @@ protocol FilterViewPresenterProtocol: class {
     func appendToSelectedCategories(category: String)
     func removeFromSelectedCategories(category: String)
     func getCategoriesList() -> [String]
-    func saveToUserDefault(categories: [String])
+    func saveToUserDefault()
     var categories: [Category]? { get set }
 }
 
@@ -85,9 +85,10 @@ class FilterPresenter: FilterViewPresenterProtocol {
     }
     
     // MARK: - save to user default storage
-    func saveToUserDefault(categories: [String]) {
+    func saveToUserDefault() {
         UserDefaults.standard.removeObject(forKey: "savedFilters")
-        UserDefaults.standard.set(categories, forKey: "savedFilters")
+        UserDefaults.standard.set(selectedCategories, forKey: "savedFilters")
+        NotificationCenter.default.post(name: NSNotification.Name("tapApplyAction"), object: nil)
     }
     
     // MARK: - go to Drinks view

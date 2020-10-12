@@ -54,7 +54,7 @@ class CocktailPresenter: CocktailViewPresenterProtocol {
                         self.view?.succes()
                         self.nextCategoryIndex += 1
                     case .failure(let error):
-                        print(error.localizedDescription)
+                        self.view?.failure(error: error)
                     }
                 }
             }

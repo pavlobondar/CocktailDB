@@ -61,9 +61,7 @@ extension FilterView: FilterViewProtocol {
 // MARK: - FilterView: FilterFooterDelegate
 extension FilterView: FilterFooterDelegate {
     func tapApplyAction() {
-        let categories = presenter.getCategoriesList()
-        presenter.saveToUserDefault(categories: categories)
-        NotificationCenter.default.post(name: NSNotification.Name("tapApplyAction"), object: nil)
+        presenter.saveToUserDefault()
         presenter.goToPopView()
     }
 }
